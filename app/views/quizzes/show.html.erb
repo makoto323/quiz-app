@@ -1,4 +1,4 @@
-<section class="hero is-success">
+<section class="hero is-link">
   <div class="hero-body">
     <div class="container">
       <h1 class="title">
@@ -34,7 +34,7 @@
                 </tr>
               </table>
               <% if @quiz.user.id == current_user.id %>
-                <%= link_to "編集画面へ", edit_quiz_path(@quiz), class: "button is-success" %>
+                <%= link_to "編集画面へ", edit_quiz_path(@quiz), class: "button is-link" %>
               <% end %>
             </div>
           </div>

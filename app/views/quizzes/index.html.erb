@@ -24,9 +24,7 @@
             <div class="card-content">
               <div class="media">
                 <div class="media-left">
-                  <figure class="image is-48x48">
-                    <%= attachment_image_tag quiz.user, :profile_image, fallback: "no-image.png", class: "profile_image" %>
-                  </figure>
+
                 </div>
                 <div class="media-content">
                   <div class="title"><%=link_to quiz.user.username, user_path(quiz.user) %></div>
