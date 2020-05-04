@@ -12,7 +12,7 @@
 
   <body>
     <% if flash[:notice] %>
-      <div class="notification is-info">
+      <div class="notification is-dark">
         <p class="notice"><%= notice %></p>
       </div>
     <% end %>
@@ -39,23 +39,23 @@
         <div id="navbarExampleTransparentExample" class="navbar-menu">
         <div class="navbar-end">
           <div class="navbar-item">
-            <%= link_to "クイズ一覧", quizzes_path, class: "navbar-item button is-info is-light" %>
+            <%= link_to "クイズに挑戦する", quizzes_path, class: "navbar-item button is-info is-light" %>
           </div>
           <div class="navbar-item">
-            <%= link_to "クイズ投稿", new_quiz_path, class: "navbar-item button is-info is-light" %>
+            <%= link_to "クイズを投稿する", new_quiz_path, class: "navbar-item button is-info is-light" %>
           </div>
+        </div>
+          <div class="navbar-end">
             <div class="navbar-item">
-              <div class="field is-grouped">
-                <p class="control">
-                  <%= link_to "投稿者一覧", users_path, class: " button is-info is-light" %>
-                </p>
-                <p class="control">
-                  <%= link_to "マイページ", user_path(current_user), class: "button is-info is-light" %>
-                </p>
-                <p class="control">
-                  <%= link_to "ログアウト", destroy_user_session_path, method: :delete, class: "button is-info is-light" %>
-                </p>
-              </div>
+              <p class="control">
+                <%= link_to "投稿者一覧", users_path, class: " button is-info is-light" %>
+              </p>
+              <p class="control">
+                <%= link_to "マイページ", user_path(current_user), class: "button is-info is-light" %>
+              </p>
+              <p class="control">
+                <%= link_to "ログアウト", destroy_user_session_path, method: :delete, class: "button is-info is-light" %>
+              </p>
             </div>
           </div>
         </div>
@@ -64,14 +64,12 @@
         <div class="navbar-end">
 
           <div class="navbar-item">
-            <div class="field is-grouped">
-              <p class="control">
-                <%= link_to "ログイン", new_user_session_path, class: "button is-info is-light" %>
-              </p>
-              <p class="control">
-                <%= link_to "新規登録", new_user_registration_path, class: "button is-info is-light" %>
-              </p>
-              </div>
+            <p class="control">
+              <%= link_to "ログイン", new_user_session_path, class: "button is-info is-light" %>
+            </p>
+            <p class="control">
+              <%= link_to "新規登録", new_user_registration_path, class: "button is-info is-light" %>
+            </p>
             </div>
           </div>
         </div>

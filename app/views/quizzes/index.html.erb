@@ -28,11 +28,21 @@
                 </div>
                 <div class="media-content">
                   <div class="title"><%=link_to quiz.user.username, user_path(quiz.user) %></div>
+                  <%= quiz.title %></a>
                 </div>
               </div>
 
               <div class="content">
+                <h4>更新日時</h4>
                 <time><%= quiz.updated_at.strftime("%Y-%m-%d %H:%M") %></time>更新
+              </div>
+
+              <div class="content">
+                <h4>いいねの数数</h4>
+                <% @quizzes.each do |quiz| %>
+                <a href="/quizzes/<%= quiz.id %>"><%= quiz.title %></a>
+                (<%= quiz.liked_users.count %>)<br>
+                <% end %>
               </div>
             </div>
           </div>

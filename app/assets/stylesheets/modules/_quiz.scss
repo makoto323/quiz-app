@@ -1,0 +1,28 @@
+.field {
+  margin-top: 30px;
+}
+
+.comments {
+  margin-top: 50px;
+}
+
+.to-edit {
+  margin-top: 50px;
+}
+
+h4 {
+  position: relative;
+  padding-left: 1.2em;
+  line-height: 1.4;
+  margin-top: 50px;
+}
+
+h4:before {
+  font-family: "Font Awesome 5 Free";
+  content: "\f075";
+  position: absolute;
+  font-size: 1em;
+  left: 0;
+  top: 0;
+  color: #5ab9ff;
+}

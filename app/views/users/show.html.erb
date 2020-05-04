@@ -25,7 +25,7 @@
                   <%= @user.email %>
                 </td>
                 <td>
-                    <%= link_to "編集", edit_user_path(@user), class: "button is-info" %>
+                    <%= link_to "編集", edit_user_path(@user), class: "button is-rounded is-info" %>
                 </td>
                 <% end %>
               </tr>
@@ -37,6 +37,16 @@
                 </td>
               </tr>
             </table>
+
+          <% @user.quizzes.each do |quiz| %>
+            <hr>
+          <% end %>
+          <h4>いいねしている投稿</h4>
+          <% @user.liked_quizzes.each do |quiz| %>
+            <%= quiz.title %>
+            <%= quiz.user.username %><br>
+          <% end %>
+
           </div>
         </div>
       </div>
@@ -64,7 +74,7 @@
                     <span class="panel-icon">
                       <i class="fas fa-book" aria-hidden="true"></i>
                     </span>
-                    このクイズ’を見る
+                    このクイズを見る
                   <% end %>
                   <% if @user.id == current_user.id %>
                     <%= link_to edit_quiz_path(quiz), class: "panel-block" do %>

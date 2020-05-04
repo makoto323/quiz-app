@@ -33,8 +33,48 @@
                   <td><%= simple_format @quiz.body %></td>
                 </tr>
               </table>
+
+              <div class="field">
+                <% if current_user %>
+                  <%= form_with(model: [@quiz, @comment], local: true) do |form| %>
+                    <p class="control">
+                      <%= form.text_area :text, placeholder: "クイズの解答をする", rows: "2",class: "input is-rounded is-link" %>
+                    </p>
+                    <p class="control">
+                      <%= form.submit "解答を送信", class: "button is-rounded is-link" %>
+                    </p>
+                  <% end %>
+                <% else %>
+                  <strong><p>コメントの投稿には新規登録/ログインが必要です</p></strong>
+                <% end %>
+              </div>
+
+              <div class="comments">
+                <h4>みんなの解答</h4>
+                <% if @comments %>
+                  <% @comments.each do |comment| %>
+                    <p>
+                      <strong><%= link_to comment.user.username, "/users/#{comment.user_id}" %>：</strong>
+                      <%= comment.text %>
+                    </p>
+                  <% end %>
+                <% end %>
+              </div>
+
+
+<h4>いいね件数: <%= @quiz.likes.count %></h4>
+<% if current_user.already_liked?(@quiz) %>
+  <%= button_to 'いいねを取り消す', quiz_like_path(@quiz), method: :delete, class: "button is-link" %>
+<% else %>
+  <%= button_to 'いいね', quiz_likes_path(@quiz),class: "button is-link" %>
+<% end %>
+<h4>いいねしたユーザー</h4>
+<% @quiz.liked_users.each do |user| %>
+  <li><%= user.username %></li>
+<% end %>
+
               <% if @quiz.user.id == current_user.id %>
-                <%= link_to "編集画面へ", edit_quiz_path(@quiz), class: "button is-link" %>
+                <%= link_to "編集画面へ", edit_quiz_path(@quiz), class: "button is-rounded is-link to-edit" %>
               <% end %>
             </div>
           </div>
