@@ -25,4 +25,4 @@ production:
   database: quiz-app_production
   username: root
   password: <%= ENV['DATABASE_PASSWORD'] %>
-  socket: /var/lib/sqlite3/sqlite3.sock
+  socket: /var/lib/mysql/mysql.sock
